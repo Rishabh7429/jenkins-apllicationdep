@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+
+<style>
+body {
+	padding: 10px;
+}
+
+.form {
+	width: 40%;
+	margin-left: 400px;
+	margin-top: 100px;
+	background-color: #ADD8E6;
+	padding: 50px;
+	border-radius: 25px;
+}
+
+.shift {
+	margin-top: 50px;
+}
+</style>
+<body style="background-color: #E0FFFF">
+
+	<h1
+		style="margin-left: 250px; color: Black; font-family: Arial, Helvetica, sans-serif;">Welcome
+		to Employee Management System</h1>
+	<h3
+		style="margin-left: 250px; color: Black; font-family: Arial, Helvetica, sans-serif;">List Of Employees</h3>
+	<hr>
+	
+	<div class="buttons">
+		<div>
+			<a th:href="@{updateEmp}"><button type="button"
+					class="btn btn-success btn-lg float-right" style="margin-right: 50px">Update Employee
+			      </button></a>
+			      
+			 <a th:href="@{deleteEmp}"><button type="button"
+					class="btn btn-success btn-lg float-left" style="margin-left: 50px">Delete Employee
+			      </button></a>
+		</div>
+		<div class="text-center">
+			<a th:href="@{addEmp}"><button type="button"
+					class="btn btn-success btn-lg" style="margin-top: 50px">Add Employee
+			      </button></a>
+		</div>
+			
+		</div>
+		
+		
+	
+	
+	<div class="scrollmenu">
+		<div
+			style="margin-top: -30px; width: 70%; margin-left: 200px; margin-top: 50px; background-color: #ADD8E6; padding: 15px; font-family: Arial, Helvetica, sans-serif; font-size: 100%;">
+			<div class="table-responsive">
+				<table class="table table-fixed">
+					<tr>
+						<th>Employee Id</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Salary</th>
+						<th>Date of Joining</th>
+						
+						
+					</tr>
+					<tr th:each="emp:${empList}">		
+						<td><span th:text="${emp.emp_id}"></span></td>
+						<td><span th:text="${emp.name}"></span></td>
+						<td><span th:text="${emp.address}"></span></td>
+						<td><span th:text="${emp.salary}"></span></td>
+						<td><span th:text="${emp.doj}"></span></td>
+						
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
